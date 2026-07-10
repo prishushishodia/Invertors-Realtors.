@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-paper text-ink antialiased;
+  }
+  ::selection {
+    background: rgba(198, 151, 73, 0.25);
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-content px-6 md:px-10;
+  }
+
+  /* Small gold rule + letter-spaced label used above every section heading */
+  .eyebrow {
+    @apply flex items-center gap-3 text-[13px] font-semibold uppercase tracking-[0.18em] text-ink;
+  }
+  .eyebrow::before {
+    content: "";
+    @apply block h-px w-8 bg-gold;
+  }
+
+  .display-h1 {
+    @apply font-display font-semibold leading-[0.98] tracking-[-0.01em] text-navy;
+    font-size: clamp(2.75rem, 6vw, 5.25rem);
+  }
+  .display-h2 {
+    @apply font-display font-semibold leading-[1.02] tracking-[-0.01em] text-navy;
+    font-size: clamp(2.1rem, 4.2vw, 3.6rem);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-navy px-7 py-4
+           text-[15px] font-semibold text-white transition-colors hover:bg-navy-deep;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-3 rounded-full border border-line bg-white px-7 py-4
+           text-[15px] font-semibold text-ink transition-colors hover:border-navy/30;
+  }
+}
