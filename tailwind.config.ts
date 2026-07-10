@@ -25,7 +25,7 @@ const config: Config = {
         line: "#e6e8f0",
       },
       fontFamily: {
-        display: ["var(--font-display)", "system-ui", "sans-serif"],
+        display: ['"Helvetica Neue"', "Helvetica", "Arial", "sans-serif"],
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
       },
       borderRadius: {

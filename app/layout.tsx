@@ -1,13 +1,6 @@
 import type { Metadata } from "next";
-import { Fredoka, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-
-const display = Fredoka({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-display",
-  display: "swap",
-});
 
 const sans = Inter({
   subsets: ["latin"],
@@ -27,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${sans.variable} ${display.variable}`}>
+    <html lang="en" className={sans.variable}>
       <body className="font-sans">{children}</body>
     </html>
   );
