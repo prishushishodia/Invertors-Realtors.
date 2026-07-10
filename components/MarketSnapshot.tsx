@@ -11,27 +11,32 @@ const UPDATES = [
   {
     category: "Airport",
     icon: Plane,
-    title: "Runway 1 nearing operational readiness with trial flights logged.",
+    title: "Noida International Airport is live — commercial flights now operating.",
+    meta: "Operational",
   },
   {
-    category: "Draw Updates",
+    category: "Scheme",
     icon: FileCheck2,
-    title: "YEIDA residential draw sees strong subscription across sectors.",
+    title: "YEIDA RPS-10 opens 973 residential plots across three airport-side sectors.",
+    meta: "973 plots",
   },
   {
     category: "Infrastructure",
     icon: Building2,
     title: "Interchange and access roads at Sector 18 progressing on schedule.",
+    meta: "On track",
   },
   {
     category: "Investor Activity",
     icon: LineChart,
     title: "Resale enquiries rising as buyers reposition ahead of possession.",
+    meta: "Rising",
   },
   {
     category: "Policy",
     icon: Compass,
     title: "Authority notification refines eligibility for upcoming plot allocations.",
+    meta: "Updated",
   },
 ];
 
@@ -51,12 +56,12 @@ export default function MarketSnapshot() {
               investor sentiment — distilled into a weekly research view.
             </p>
           </div>
-          <a
-            href="#market"
-            className="inline-flex shrink-0 items-center gap-2 text-[15px] font-semibold text-navy"
-          >
+          <a href="#market-watch" className="group link-arrow shrink-0">
             All updates
-            <ArrowRight className="h-4 w-4" strokeWidth={2.2} />
+            <ArrowRight
+              className="h-4 w-4 transition-transform group-hover:translate-x-1"
+              strokeWidth={2.2}
+            />
           </a>
         </div>
 
@@ -64,30 +69,58 @@ export default function MarketSnapshot() {
           {UPDATES.map((item) => (
             <article
               key={item.category}
-              className="group flex flex-col justify-between rounded-4xl border border-line bg-white p-8 shadow-card transition-shadow hover:shadow-float"
+              className="card card-hover group flex flex-col justify-between p-8"
             >
               <div>
                 <div className="flex items-start justify-between">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky text-navy">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky text-navy transition-colors duration-300 group-hover:bg-navy group-hover:text-gold-bright">
                     <item.icon className="h-5 w-5" strokeWidth={1.8} />
                   </span>
-                  <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted">
-                    {item.category}
+                  <span className="rounded-full bg-gold/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-gold">
+                    {item.meta}
                   </span>
                 </div>
-                <h3 className="mt-16 font-display text-[26px] font-medium leading-snug text-navy">
+                <p className="mt-8 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted">
+                  {item.category}
+                </p>
+                <h3 className="mt-3 font-display text-[26px] font-medium leading-snug text-navy">
                   {item.title}
                 </h3>
               </div>
-              <a
-                href="#market"
-                className="mt-10 inline-flex items-center gap-2 text-[15px] font-semibold text-navy"
-              >
+              <a href="#market-watch" className="mt-10 link-arrow">
                 Read more
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.2} />
+                <ArrowRight
+                  className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                  strokeWidth={2.2}
+                />
               </a>
             </article>
           ))}
+
+          {/* Highlight tile */}
+          <article className="relative flex flex-col justify-between overflow-hidden rounded-4xl bg-navy p-8 text-white shadow-float">
+            <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-gold/25 blur-2xl" />
+            <div className="relative">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-bright">
+                Indicative pricing
+              </p>
+              <h3 className="mt-4 font-display text-5xl font-semibold">
+                ₹35,000
+                <span className="text-2xl font-medium text-white/70"> / sq.m</span>
+              </h3>
+              <p className="mt-4 text-[15px] leading-relaxed text-white/70">
+                RPS-10 base rate — a 162 sq.m plot lands near ₹56.7 L. We model
+                your all-in cost and upside before you apply.
+              </p>
+            </div>
+            <a
+              href="#contact"
+              className="relative mt-8 inline-flex items-center gap-2 text-[15px] font-semibold text-gold-bright"
+            >
+              Get a plot analysis
+              <ArrowRight className="h-4 w-4" strokeWidth={2.2} />
+            </a>
+          </article>
         </div>
       </div>
     </section>

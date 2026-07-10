@@ -25,8 +25,15 @@ const CENTER = { x: 50, y: 52 };
 
 export default function Ecosystem() {
   return (
-    <section id="ecosystem" className="bg-navy-deep py-20 text-white lg:py-28">
-      <div className="container-page">
+    <section
+      id="ecosystem"
+      className="relative overflow-hidden bg-navy-deep py-20 text-white lg:py-28"
+    >
+      {/* ambient glows */}
+      <div className="pointer-events-none absolute -left-24 top-1/3 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
+      <div className="pointer-events-none absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-navy-soft/40 blur-3xl" />
+
+      <div className="container-page relative">
         <p className="eyebrow !text-gold before:!bg-gold">
           Infrastructure Ecosystem
         </p>
@@ -54,9 +61,9 @@ export default function Ecosystem() {
                 y1={CENTER.y}
                 x2={n.x}
                 y2={n.y}
-                stroke="#c69749"
-                strokeWidth={0.15}
-                strokeOpacity={0.35}
+                stroke="#d3ac66"
+                strokeWidth={0.18}
+                strokeOpacity={0.4}
               />
             ))}
             {NODES.map((n, i) => {
@@ -68,9 +75,9 @@ export default function Ecosystem() {
                   y1={n.y}
                   x2={next.x}
                   y2={next.y}
-                  stroke="#c69749"
+                  stroke="#d3ac66"
                   strokeWidth={0.12}
-                  strokeOpacity={0.2}
+                  strokeOpacity={0.22}
                 />
               );
             })}
@@ -81,10 +88,12 @@ export default function Ecosystem() {
             className="absolute -translate-x-1/2 -translate-y-1/2"
             style={{ left: `${CENTER.x}%`, top: `${CENTER.y}%` }}
           >
-            <div className="relative flex h-20 w-20 items-center justify-center">
-              <div className="absolute inset-0 rounded-full bg-gold/25 blur-xl" />
-              <div className="absolute inset-4 rounded-full bg-gold/40 blur-md" />
-              <div className="relative h-8 w-8 rounded-full bg-gold shadow-[0_0_30px_rgba(198,151,73,0.8)]" />
+            <div className="relative flex h-24 w-24 items-center justify-center">
+              <div className="absolute inset-0 animate-pulse-glow rounded-full bg-gold/25 blur-xl" />
+              <div className="absolute inset-5 rounded-full bg-gold/40 blur-md" />
+              <div className="relative flex h-10 w-10 items-center justify-center rounded-full bg-gold text-[10px] font-bold uppercase tracking-tight text-navy-deep shadow-[0_0_30px_rgba(211,172,102,0.8)]">
+                YEIDA
+              </div>
             </div>
           </div>
 
@@ -92,10 +101,10 @@ export default function Ecosystem() {
           {NODES.map((n) => (
             <div
               key={n.label}
-              className="absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-2"
+              className="group absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-2"
               style={{ left: `${n.x}%`, top: `${n.y}%` }}
             >
-              <span className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-gold backdrop-blur">
+              <span className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-gold-bright backdrop-blur transition-all duration-300 group-hover:-translate-y-1 group-hover:border-gold/40 group-hover:bg-gold/10 group-hover:shadow-gold">
                 <n.icon className="h-6 w-6" strokeWidth={1.8} />
               </span>
               <span className="whitespace-nowrap text-[13px] font-medium text-white/85">

@@ -59,23 +59,24 @@ export default function WhyInvestorsHome() {
           {FEATURES.map((f) => (
             <article
               key={f.num}
-              className="rounded-4xl border border-line bg-white p-8 shadow-card"
+              className="group relative overflow-hidden rounded-4xl border border-line bg-white p-8 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-gold/40 hover:shadow-float"
             >
-              <div className="flex items-start justify-between">
-                <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-navy text-gold shadow-card">
+              <div className="pointer-events-none absolute -right-8 -top-8 h-28 w-28 rounded-full bg-gold/5 blur-2xl transition-opacity duration-300 group-hover:opacity-100" />
+              <div className="relative flex items-start justify-between">
+                <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-navy text-gold-bright shadow-card ring-1 ring-inset ring-white/10 transition-transform duration-300 group-hover:-rotate-3">
                   <f.icon className="h-7 w-7" strokeWidth={1.8} />
                 </span>
-                <span className="font-display text-5xl font-semibold text-line">
+                <span className="font-display text-5xl font-semibold text-line transition-colors duration-300 group-hover:text-gold/40">
                   {f.num}
                 </span>
               </div>
-              <h3 className="mt-8 font-display text-2xl font-semibold text-navy">
+              <h3 className="relative mt-8 font-display text-2xl font-semibold text-navy">
                 {f.title}
               </h3>
-              <p className="mt-3 text-[15px] leading-relaxed text-muted">
+              <p className="relative mt-3 text-[15px] leading-relaxed text-muted">
                 {f.copy}
               </p>
-              <div className="mt-8 h-0.5 w-10 rounded-full bg-gold" />
+              <div className="relative mt-8 h-0.5 w-10 rounded-full bg-gold transition-all duration-300 group-hover:w-20" />
             </article>
           ))}
         </div>

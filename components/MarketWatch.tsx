@@ -15,7 +15,7 @@ const ARTICLES = [
   },
   {
     category: "New Scheme",
-    title: "Residential scheme draw dates and eligibility for FY26 announced.",
+    title: "RPS-10 residential draw dates and eligibility confirmed for FY26.",
     image:
       "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1000&q=80",
   },
@@ -33,7 +33,7 @@ const ARTICLES = [
   },
   {
     category: "Airport",
-    title: "Terminal fit-out advances as commercial operations date nears.",
+    title: "Terminal fit-out advances as commercial operations scale up.",
     image:
       "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1000&q=80",
   },
@@ -43,35 +43,49 @@ export default function MarketWatch() {
   return (
     <section id="market-watch" className="py-20 lg:py-28">
       <div className="container-page">
-        <p className="eyebrow">Market Watch</p>
-        <h2 className="display-h2 mt-6 max-w-3xl">
-          Curated intelligence, published continuously.
-        </h2>
+        <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="eyebrow">Market Watch</p>
+            <h2 className="display-h2 mt-6 max-w-3xl">
+              Curated intelligence, published continuously.
+            </h2>
+          </div>
+          <a href="#youtube" className="group link-arrow shrink-0">
+            View the archive
+            <ArrowUpRight
+              className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              strokeWidth={2.2}
+            />
+          </a>
+        </div>
 
         <div className="mt-16 grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
-          {ARTICLES.map((a) => (
+          {ARTICLES.map((a, i) => (
             <article
               key={a.title}
-              className="group overflow-hidden rounded-4xl border border-line bg-white shadow-card transition-shadow hover:shadow-float"
+              className={`card card-hover group overflow-hidden ${
+                i === 0 ? "md:col-span-2 lg:col-span-2" : ""
+              }`}
             >
-              <div className="h-56 overflow-hidden">
+              <div className={`overflow-hidden ${i === 0 ? "h-72" : "h-56"}`}>
                 <img
                   src={a.image}
                   alt=""
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
               <div className="p-7">
                 <div className="flex items-center justify-between">
-                  <span className="inline-flex rounded-full bg-sky px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-navy">
-                    {a.category}
+                  <span className="tag">{a.category}</span>
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-sand text-muted transition-colors duration-300 group-hover:bg-navy group-hover:text-gold-bright">
+                    <ArrowUpRight className="h-4 w-4" strokeWidth={2} />
                   </span>
-                  <ArrowUpRight
-                    className="h-5 w-5 text-muted transition-colors group-hover:text-navy"
-                    strokeWidth={2}
-                  />
                 </div>
-                <h3 className="mt-6 font-display text-[22px] font-medium leading-snug text-navy">
+                <h3
+                  className={`mt-6 font-display font-medium leading-snug text-navy ${
+                    i === 0 ? "text-[28px]" : "text-[22px]"
+                  }`}
+                >
                   {a.title}
                 </h3>
               </div>
